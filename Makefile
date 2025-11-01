@@ -1,4 +1,4 @@
-.PHONY: help prerequisites check-tools setup-github setup-gcloud get-oauth add-secrets trigger-sync complete
+.PHONY: help prerequisites check-tools setup-github setup-gcloud get-oauth add-secrets enable-actions trigger-sync complete
 
 SHELL := /bin/bash
 PROJECT_NAME := youtube-newpipe-sync
@@ -14,18 +14,19 @@ help:
 	@echo "YouTube → NewPipe Sync Setup"
 	@echo ""
 	@echo "Run these targets in order:"
-	@echo "  make prerequisites  - Check all required tools"
-	@echo "  make setup-github   - Create GitHub repo and add all files"
-	@echo "  make setup-gcloud   - Guide through Google Cloud setup"
-	@echo "  make get-oauth      - Get OAuth credentials and refresh token"
-	@echo "  make add-secrets    - Add secrets to GitHub"
-	@echo "  make trigger-sync   - Run first sync"
-	@echo "  make complete       - Show final URLs and instructions"
+	@echo "  make prerequisites   - Check all required tools"
+	@echo "  make setup-github    - Create GitHub repo and add all files"
+	@echo "  make setup-gcloud    - Guide through Google Cloud setup"
+	@echo "  make get-oauth       - Get OAuth credentials and refresh token"
+	@echo "  make add-secrets     - Add secrets to GitHub"
+	@echo "  make enable-actions  - Enable workflow write permissions (manual step)"
+	@echo "  make trigger-sync    - Run first sync"
+	@echo "  make complete        - Show final URLs and instructions"
 	@echo ""
 	@echo "Or run everything:"
 	@echo "  make all"
 
-all: prerequisites setup-github setup-gcloud get-oauth add-secrets trigger-sync complete
+all: prerequisites setup-github setup-gcloud get-oauth add-secrets enable-actions trigger-sync complete
 
 prerequisites:
 	@echo "$(GREEN)Checking prerequisites...$(NC)"
@@ -157,6 +158,26 @@ add-secrets:
 	@echo "$(YELLOW)Cleaning up local credential files...$(NC)"
 	@rm -f .oauth-client-id .oauth-client-secret .oauth-refresh-token .gcloud-project-id
 	@echo "$(GREEN)✅ Cleaned up$(NC)"
+
+enable-actions:
+	@echo "$(YELLOW)━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$(NC)"
+	@echo "$(YELLOW)⚠️  MANUAL STEP REQUIRED$(NC)"
+	@echo "$(YELLOW)━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$(NC)"
+	@echo ""
+	@echo "You must enable workflow write permissions:"
+	@echo ""
+	@echo "1. Opening browser to repository settings..."
+	@USERNAME=$$(gh api user -q .login); \
+	open "https://github.com/$$USERNAME/$(PROJECT_NAME)/settings/actions" 2>/dev/null || \
+		echo "   Visit: https://github.com/$$USERNAME/$(PROJECT_NAME)/settings/actions"
+	@echo ""
+	@echo "2. Scroll down to 'Workflow permissions'"
+	@echo "3. Select: 'Read and write permissions'"
+	@echo "4. Click 'Save'"
+	@echo ""
+	@read -p "Press Enter after completing these steps..."
+	@echo ""
+	@echo "$(GREEN)✅ Ready to trigger sync$(NC)"
 
 trigger-sync:
 	@echo "$(GREEN)Triggering first sync...$(NC)"
