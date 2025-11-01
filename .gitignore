@@ -1,0 +1,12 @@
+credentials.json
+token.json
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+exports/
+.vscode/
+.idea/
+.DS_Store
+.oauth-*
+.gcloud-project-id
