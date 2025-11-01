@@ -182,20 +182,45 @@ def generate_cleanup_html(changes, metadata):
             </div>
         </div>
     </div>
+
+    <div class="card">
+        <h2>📥 Step 1: Import New Subscriptions</h2>
+        <div class="instructions">
+            <strong>Import this file to add new YouTube subscriptions to NewPipe:</strong>
+        </div>
+        <div style="background: #f5f5f5; padding: 15px; border-radius: 4px; margin: 15px 0; word-break: break-all;">
+            <strong>Subscription URL:</strong><br>
+            <a href="subscriptions.json" style="color: #1976d2;">subscriptions.json</a>
+        </div>
+        <div style="padding-left: 20px;">
+            <strong>How to import:</strong>
+            <ol>
+                <li>Open NewPipe on your phone</li>
+                <li>Tap the ☰ menu (top-left)</li>
+                <li>Go to <strong>Settings</strong> → <strong>Content</strong></li>
+                <li>Tap <strong>Import from file</strong></li>
+                <li>Paste the URL above or download and select the file</li>
+                <li>Tap <strong>Import</strong></li>
+            </ol>
+            <p style="color: #666; font-size: 0.9em;">
+                💡 <em>Tip: Bookmark the subscriptions.json URL for easy access!</em>
+            </p>
+        </div>
+    </div>
 """
 
     if changes['removed']:
         html += """
     <div class="card">
-        <h2 class="removed">❌ Unsubscribe from These Channels</h2>
+        <h2 class="removed">❌ Step 2: Remove Old Subscriptions</h2>
         <div class="instructions">
             <strong>These channels were removed from your YouTube subscriptions.</strong><br>
             To clean up NewPipe, manually unsubscribe from each channel below:
             <ol>
                 <li>Open NewPipe</li>
-                <li>Go to Subscriptions tab</li>
-                <li>Long-press the channel</li>
-                <li>Select "Unsubscribe"</li>
+                <li>Tap the <strong>Subscriptions</strong> tab</li>
+                <li><strong>Long-press</strong> the channel</li>
+                <li>Select <strong>Unsubscribe</strong></li>
             </ol>
         </div>
 """
@@ -216,8 +241,8 @@ def generate_cleanup_html(changes, metadata):
     if changes['added']:
         html += """
     <div class="card">
-        <h2 class="added">✨ New Subscriptions</h2>
-        <p>Import the latest subscriptions.json to add these channels:</p>
+        <h2 class="added">✨ New Channels Added</h2>
+        <p>These channels are new since your last sync. They'll be added when you import subscriptions.json above:</p>
 """
         for channel in sorted(changes['added'], key=lambda x: x['name']):
             html += f"""
