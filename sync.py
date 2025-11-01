@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import csv
 import json
 import os
 from datetime import datetime
@@ -38,6 +39,17 @@ def transform_to_newpipe_format(subscriptions):
         'url': f"https://www.youtube.com/channel/{s['snippet']['resourceId']['channelId']}"
     } for s in subscriptions]
     return {'app_version': '0.26.1', 'app_version_int': 996, 'subscriptions': channels}
+
+def transform_to_youtube_csv(subscriptions, output_path):
+    """Export subscriptions in YouTube CSV format (Google Takeout compatible)"""
+    with open(output_path, 'w', encoding='utf-8', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['Channel Id', 'Channel Url', 'Channel Title'])
+        for s in subscriptions:
+            channel_id = s['snippet']['resourceId']['channelId']
+            channel_url = f"http://www.youtube.com/channel/{channel_id}"
+            channel_title = s['snippet']['title']
+            writer.writerow([channel_id, channel_url, channel_title])
 
 def load_previous_metadata():
     """Load previous metadata if it exists"""
@@ -189,11 +201,13 @@ def generate_cleanup_html(changes, metadata):
             <strong>Import this file to add new YouTube subscriptions to NewPipe:</strong>
         </div>
         <div style="background: #f5f5f5; padding: 15px; border-radius: 4px; margin: 15px 0; word-break: break-all;">
-            <strong>Subscription URL:</strong><br>
-            <a href="subscriptions.json" style="color: #1976d2;">subscriptions.json</a>
+            <strong>NewPipe Format:</strong><br>
+            <a href="subscriptions.json" style="color: #1976d2;">subscriptions.json</a><br><br>
+            <strong>YouTube CSV Format (Google Takeout compatible):</strong><br>
+            <a href="subscriptions.csv" style="color: #1976d2;">subscriptions.csv</a>
         </div>
         <div style="padding-left: 20px;">
-            <strong>How to import:</strong>
+            <strong>How to import (NewPipe):</strong>
             <ol>
                 <li>Open NewPipe on your phone</li>
                 <li>Tap the ☰ menu (top-left)</li>
@@ -203,7 +217,8 @@ def generate_cleanup_html(changes, metadata):
                 <li>Tap <strong>Import</strong></li>
             </ol>
             <p style="color: #666; font-size: 0.9em;">
-                💡 <em>Tip: Bookmark the subscriptions.json URL for easy access!</em>
+                💡 <em>Tip: Bookmark the subscriptions.json URL for easy access!</em><br>
+                📊 <em>The CSV format can be imported into YouTube or other compatible apps.</em>
             </p>
         </div>
     </div>
@@ -294,6 +309,11 @@ def main():
     timestamp = datetime.utcnow().strftime('%Y-%m-%d')
     with open(OUTPUT_DIR / f'subscriptions-{timestamp}.json', 'w', encoding='utf-8') as f:
         json.dump(newpipe_data, f, indent=2, ensure_ascii=False)
+
+    # Export YouTube CSV format
+    print("Generating YouTube CSV export...")
+    transform_to_youtube_csv(subscriptions, OUTPUT_DIR / 'subscriptions.csv')
+    transform_to_youtube_csv(subscriptions, OUTPUT_DIR / f'subscriptions-{timestamp}.csv')
 
     # Create metadata with change tracking
     metadata = {

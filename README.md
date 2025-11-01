@@ -27,7 +27,8 @@ The cleanup guide shows you exactly which channels to remove, with step-by-step 
 ## Useful Links
 
 - **Cleanup guide (mobile-friendly):** https://mi-skam.github.io/youtube-newpipe-sync/
-- **Subscription file:** https://mi-skam.github.io/youtube-newpipe-sync/subscriptions.json
+- **Subscription file (NewPipe):** https://mi-skam.github.io/youtube-newpipe-sync/subscriptions.json
+- **Subscription file (YouTube CSV):** https://mi-skam.github.io/youtube-newpipe-sync/subscriptions.csv
 - **Changes (JSON):** https://mi-skam.github.io/youtube-newpipe-sync/changes.json
 - **Metadata (human-readable list):** https://mi-skam.github.io/youtube-newpipe-sync/metadata.json
 - **Workflow status:** https://github.com/mi-skam/youtube-newpipe-sync/actions
@@ -96,6 +97,7 @@ make all
 3. Compares with previous sync to detect changes (added/removed channels)
 4. Generates:
    - `subscriptions.json` - NewPipe import file
+   - `subscriptions.csv` - YouTube CSV format (Google Takeout compatible)
    - `index.html` - Mobile-friendly cleanup guide showing which channels to remove
    - `changes.json` - Machine-readable diff
    - `metadata.json` - Stats and channel list
