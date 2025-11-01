@@ -19,15 +19,15 @@ https://mi-skam.github.io/youtube-newpipe-sync/subscriptions.json
 NewPipe's import only **adds** subscriptions - it doesn't remove channels you've unsubscribed from on YouTube. To keep NewPipe in sync:
 
 1. **Import new subscriptions** (adds channels you subscribed to on YouTube)
-2. **Visit the cleanup guide:** https://mi-skam.github.io/youtube-newpipe-sync/cleanup-guide.html
+2. **Visit the cleanup guide:** https://mi-skam.github.io/youtube-newpipe-sync/
 3. **Manually unsubscribe** from channels listed in the "Unsubscribe" section
 
 The cleanup guide shows you exactly which channels to remove, with step-by-step instructions.
 
 ## Useful Links
 
+- **Cleanup guide (mobile-friendly):** https://mi-skam.github.io/youtube-newpipe-sync/
 - **Subscription file:** https://mi-skam.github.io/youtube-newpipe-sync/subscriptions.json
-- **Cleanup guide (mobile-friendly):** https://mi-skam.github.io/youtube-newpipe-sync/cleanup-guide.html
 - **Changes (JSON):** https://mi-skam.github.io/youtube-newpipe-sync/changes.json
 - **Metadata (human-readable list):** https://mi-skam.github.io/youtube-newpipe-sync/metadata.json
 - **Workflow status:** https://github.com/mi-skam/youtube-newpipe-sync/actions
@@ -96,7 +96,7 @@ make all
 3. Compares with previous sync to detect changes (added/removed channels)
 4. Generates:
    - `subscriptions.json` - NewPipe import file
-   - `cleanup-guide.html` - Mobile-friendly page showing which channels to remove
+   - `index.html` - Mobile-friendly cleanup guide showing which channels to remove
    - `changes.json` - Machine-readable diff
    - `metadata.json` - Stats and channel list
 5. Publishes everything to **GitHub Pages** (gh-pages branch)

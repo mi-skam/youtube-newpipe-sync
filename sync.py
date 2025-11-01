@@ -298,16 +298,16 @@ def main():
             'changes': changes
         }, f, indent=2, ensure_ascii=False)
 
-    # Generate cleanup HTML guide
+    # Generate cleanup HTML guide as index.html
     print("Generating cleanup guide...")
     cleanup_html = generate_cleanup_html(changes, metadata)
-    with open(OUTPUT_DIR / 'cleanup-guide.html', 'w', encoding='utf-8') as f:
+    with open(OUTPUT_DIR / 'index.html', 'w', encoding='utf-8') as f:
         f.write(cleanup_html)
 
     print("Sync complete!")
     if changes['removed']:
         print(f"⚠️  {len(changes['removed'])} channel(s) need to be removed from NewPipe")
-        print("   View cleanup-guide.html for details")
+        print("   View index.html for details")
 
 if __name__ == '__main__':
     main()
