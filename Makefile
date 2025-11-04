@@ -1,7 +1,7 @@
 .PHONY: help prerequisites check-tools setup-github setup-gcloud get-oauth add-secrets enable-actions trigger-sync complete
 
 SHELL := /bin/bash
-PROJECT_NAME := youtube-newpipe-sync
+PROJECT_NAME := tubesync
 REPO_DIR := $(shell pwd)
 
 # Colors for output

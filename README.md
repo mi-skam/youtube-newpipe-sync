@@ -6,7 +6,7 @@ Automatically syncs your YouTube subscriptions to NewPipe format daily at 2 AM U
 
 **Bookmark this URL:**
 ```
-https://mi-skam.github.io/youtube-newpipe-sync/subscriptions.json
+https://mi-skam.github.io/tubesync/subscriptions.json
 ```
 
 **To import:**
@@ -19,19 +19,19 @@ https://mi-skam.github.io/youtube-newpipe-sync/subscriptions.json
 NewPipe's import only **adds** subscriptions - it doesn't remove channels you've unsubscribed from on YouTube. To keep NewPipe in sync:
 
 1. **Import new subscriptions** (adds channels you subscribed to on YouTube)
-2. **Visit the cleanup guide:** https://mi-skam.github.io/youtube-newpipe-sync/
+2. **Visit the cleanup guide:** https://mi-skam.github.io/tubesync/
 3. **Manually unsubscribe** from channels listed in the "Unsubscribe" section
 
 The cleanup guide shows you exactly which channels to remove, with step-by-step instructions.
 
 ## Useful Links
 
-- **Cleanup guide (mobile-friendly):** https://mi-skam.github.io/youtube-newpipe-sync/
-- **Subscription file (NewPipe):** https://mi-skam.github.io/youtube-newpipe-sync/subscriptions.json
-- **Subscription file (YouTube CSV):** https://mi-skam.github.io/youtube-newpipe-sync/subscriptions.csv
-- **Changes (JSON):** https://mi-skam.github.io/youtube-newpipe-sync/changes.json
-- **Metadata (human-readable list):** https://mi-skam.github.io/youtube-newpipe-sync/metadata.json
-- **Workflow status:** https://github.com/mi-skam/youtube-newpipe-sync/actions
+- **Cleanup guide (mobile-friendly):** https://mi-skam.github.io/tubesync/
+- **Subscription file (NewPipe):** https://mi-skam.github.io/tubesync/subscriptions.json
+- **Subscription file (YouTube CSV):** https://mi-skam.github.io/tubesync/subscriptions.csv
+- **Changes (JSON):** https://mi-skam.github.io/tubesync/changes.json
+- **Metadata (human-readable list):** https://mi-skam.github.io/tubesync/metadata.json
+- **Workflow status:** https://github.com/mi-skam/tubesync/actions
 
 ## Manual Sync
 
@@ -81,7 +81,7 @@ make complete
 ```
 
 **Important:** After `make add-secrets`, you must enable workflow write permissions:
-1. Go to: https://github.com/YOUR_USERNAME/youtube-newpipe-sync/settings/actions
+1. Go to: https://github.com/YOUR_USERNAME/tubesync/settings/actions
 2. Under "Workflow permissions", select **"Read and write permissions"**
 3. Click **"Save"**
 
