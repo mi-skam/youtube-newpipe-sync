@@ -10,3 +10,5 @@ exports/
 .DS_Store
 .oauth-*
 .gcloud-project-id
+test_output/
+output/
