@@ -1,4 +1,4 @@
-.PHONY: help prerequisites check-tools setup-github setup-gcloud get-oauth add-secrets enable-actions trigger-sync complete
+.PHONY: help prerequisites check-tools setup-github setup-gcloud get-oauth add-secrets enable-actions trigger-sync complete setup-venv test-local run-local clean-venv clean
 
 SHELL := /bin/bash
 PROJECT_NAME := tubesync
@@ -25,6 +25,12 @@ help:
 	@echo ""
 	@echo "Or run everything:"
 	@echo "  make all"
+	@echo ""
+	@echo "Local development:"
+	@echo "  make test-local      - Run tests locally (sets up venv automatically)"
+	@echo "  make run-local       - Run sync locally (requires env vars)"
+	@echo "  make setup-venv      - Set up Python virtual environment"
+	@echo "  make clean-venv      - Remove virtual environment"
 
 all: prerequisites setup-github setup-gcloud get-oauth add-secrets enable-actions trigger-sync complete
 
@@ -213,9 +219,59 @@ complete:
 	echo "   gh workflow run sync.yml"; \
 	echo ""
 
+# Local development targets
+
+setup-venv:
+	@echo "$(GREEN)Setting up Python virtual environment...$(NC)"
+	@if [ ! -d .venv ]; then \
+		python3 -m venv .venv; \
+		echo "$(GREEN)✅ Virtual environment created$(NC)"; \
+	else \
+		echo "$(YELLOW)Virtual environment already exists$(NC)"; \
+	fi
+	@echo ""
+	@echo "$(GREEN)Installing dependencies...$(NC)"
+	@.venv/bin/pip install -q --upgrade pip
+	@.venv/bin/pip install -q -r requirements.txt
+	@echo "$(GREEN)✅ Dependencies installed$(NC)"
+
+test-local: setup-venv
+	@echo "$(GREEN)Running tests...$(NC)"
+	@echo ""
+	@.venv/bin/pytest
+	@echo ""
+	@echo "$(GREEN)✅ Tests complete$(NC)"
+
+run-local: setup-venv
+	@echo "$(GREEN)Running sync locally...$(NC)"
+	@echo ""
+	@if [ -z "$$YOUTUBE_CLIENT_ID" ] || [ -z "$$YOUTUBE_CLIENT_SECRET" ] || [ -z "$$YOUTUBE_REFRESH_TOKEN" ]; then \
+		echo "$(RED)Error: Required environment variables not set$(NC)"; \
+		echo ""; \
+		echo "Please set the following environment variables:"; \
+		echo "  export YOUTUBE_CLIENT_ID='your-client-id'"; \
+		echo "  export YOUTUBE_CLIENT_SECRET='your-client-secret'"; \
+		echo "  export YOUTUBE_REFRESH_TOKEN='your-refresh-token'"; \
+		echo ""; \
+		echo "Or load from a .env file:"; \
+		echo "  source .env && make run-local"; \
+		exit 1; \
+	fi
+	@.venv/bin/python3 sync.py
+	@echo ""
+	@echo "$(GREEN)✅ Sync complete$(NC)"
+	@echo ""
+	@echo "$(YELLOW)Output files generated in ./output/$(NC)"
+	@ls -lh output/
+
+clean-venv:
+	@echo "$(YELLOW)Removing virtual environment...$(NC)"
+	@rm -rf .venv
+	@echo "$(GREEN)✅ Virtual environment removed$(NC)"
+
 clean:
 	@echo "$(YELLOW)Cleaning up local files...$(NC)"
-	@rm -rf .venv .oauth-* .gcloud-project-id
+	@rm -rf .venv .oauth-* .gcloud-project-id output/
 	@echo "$(GREEN)✅ Cleaned$(NC)"
 
 .SILENT: create-files
