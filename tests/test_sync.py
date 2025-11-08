@@ -7,8 +7,10 @@ from sync import (
     compare_subscriptions,
     generate_cleanup_html,
     load_previous_metadata,
+    load_timeline,
     transform_to_newpipe_format,
     transform_to_youtube_csv,
+    update_timeline,
 )
 
 
@@ -185,12 +187,14 @@ class TestGenerateCleanupHtml:
         """Test that HTML is generated with basic structure"""
         changes = {"added": [], "removed": [], "unchanged": []}
         metadata = {"last_updated": "2025-01-01T00:00:00", "subscription_count": 0}
+        timeline = {"entries": []}
 
-        html = generate_cleanup_html(changes, metadata)
+        html = generate_cleanup_html(changes, metadata, timeline)
 
         assert "<!DOCTYPE html>" in html
         assert "NewPipe Cleanup Guide" in html
         assert "2025-01-01" in html
+        assert "Change Timeline" in html
 
     def test_html_with_removed_channels(self):
         """Test HTML generation with removed channels"""
@@ -200,8 +204,9 @@ class TestGenerateCleanupHtml:
             "unchanged": [],
         }
         metadata = {"last_updated": "2025-01-01T00:00:00", "subscription_count": 1}
+        timeline = {"entries": []}
 
-        html = generate_cleanup_html(changes, metadata)
+        html = generate_cleanup_html(changes, metadata, timeline)
 
         assert "Remove Old Subscriptions" in html
         assert "Removed Channel" in html
@@ -215,8 +220,9 @@ class TestGenerateCleanupHtml:
             "unchanged": [],
         }
         metadata = {"last_updated": "2025-01-01T00:00:00", "subscription_count": 1}
+        timeline = {"entries": []}
 
-        html = generate_cleanup_html(changes, metadata)
+        html = generate_cleanup_html(changes, metadata, timeline)
 
         assert "New Channels Added" in html
         assert "New Channel" in html
@@ -230,10 +236,37 @@ class TestGenerateCleanupHtml:
             "unchanged": [{"name": "Existing Channel", "id": "UC123"}],
         }
         metadata = {"last_updated": "2025-01-01T00:00:00", "subscription_count": 1}
+        timeline = {"entries": []}
 
-        html = generate_cleanup_html(changes, metadata)
+        html = generate_cleanup_html(changes, metadata, timeline)
 
         assert "No Cleanup Needed" in html
+
+    def test_html_with_timeline_entries(self):
+        """Test HTML generation with timeline entries"""
+        changes = {"added": [], "removed": [], "unchanged": []}
+        metadata = {"last_updated": "2025-01-01T00:00:00", "subscription_count": 5}
+        timeline = {
+            "entries": [
+                {
+                    "timestamp": "2025-01-01T00:00:00",
+                    "subscription_count": 5,
+                    "changes": {
+                        "added_count": 2,
+                        "removed_count": 1,
+                        "unchanged_count": 2,
+                        "added_channels": [{"name": "New Channel", "id": "UC123"}],
+                        "removed_channels": [{"name": "Old Channel", "id": "UC456"}],
+                    },
+                }
+            ]
+        }
+
+        html = generate_cleanup_html(changes, metadata, timeline)
+
+        assert "Change Timeline" in html
+        assert "New Channel" in html
+        assert "Old Channel" in html
 
 
 class TestLoadPreviousMetadata:
@@ -264,3 +297,136 @@ class TestLoadPreviousMetadata:
 
         assert result == test_data
         assert result["subscription_count"] == 5
+
+
+class TestLoadTimeline:
+    """Tests for load_timeline function"""
+
+    def test_load_nonexistent_timeline(self, tmp_path, monkeypatch):
+        """Test loading when timeline file doesn't exist"""
+        monkeypatch.setattr("sync.TIMELINE_FILE", tmp_path / "nonexistent.json")
+
+        result = load_timeline()
+
+        assert result == {"entries": []}
+
+    def test_load_existing_timeline(self, tmp_path, monkeypatch):
+        """Test loading existing timeline file"""
+        timeline_file = tmp_path / "timeline.json"
+        test_data = {
+            "entries": [
+                {
+                    "timestamp": "2025-01-01T00:00:00",
+                    "subscription_count": 5,
+                    "changes": {
+                        "added_count": 2,
+                        "removed_count": 1,
+                        "unchanged_count": 2,
+                        "added_channels": [],
+                        "removed_channels": [],
+                    },
+                }
+            ]
+        }
+
+        with open(timeline_file, "w", encoding="utf-8") as f:
+            json.dump(test_data, f)
+
+        monkeypatch.setattr("sync.TIMELINE_FILE", timeline_file)
+        result = load_timeline()
+
+        assert result == test_data
+        assert len(result["entries"]) == 1
+
+
+class TestUpdateTimeline:
+    """Tests for update_timeline function"""
+
+    def test_update_empty_timeline_with_changes(self):
+        """Test updating empty timeline with changes"""
+        timeline = {"entries": []}
+        changes = {
+            "added": [{"name": "New Channel", "id": "UC123"}],
+            "removed": [],
+            "unchanged": [],
+        }
+        metadata = {
+            "last_updated": "2025-01-01T00:00:00",
+            "subscription_count": 1,
+        }
+
+        result = update_timeline(timeline, changes, metadata)
+
+        assert len(result["entries"]) == 1
+        assert result["entries"][0]["timestamp"] == "2025-01-01T00:00:00"
+        assert result["entries"][0]["subscription_count"] == 1
+        assert result["entries"][0]["changes"]["added_count"] == 1
+
+    def test_update_timeline_no_changes(self):
+        """Test that timeline doesn't add entry when there are no changes"""
+        timeline = {
+            "entries": [
+                {
+                    "timestamp": "2025-01-01T00:00:00",
+                    "subscription_count": 5,
+                    "changes": {
+                        "added_count": 0,
+                        "removed_count": 0,
+                        "unchanged_count": 5,
+                        "added_channels": [],
+                        "removed_channels": [],
+                    },
+                }
+            ]
+        }
+        changes = {"added": [], "removed": [], "unchanged": [{"name": "Ch1", "id": "UC1"}]}
+        metadata = {
+            "last_updated": "2025-01-02T00:00:00",
+            "subscription_count": 1,
+        }
+
+        result = update_timeline(timeline, changes, metadata)
+
+        # Should not add a new entry since there are no changes and timeline is not empty
+        assert len(result["entries"]) == 1
+
+    def test_update_timeline_first_entry(self):
+        """Test that first sync is always added even without changes"""
+        timeline = {"entries": []}
+        changes = {"added": [], "removed": [], "unchanged": [{"name": "Ch1", "id": "UC1"}]}
+        metadata = {
+            "last_updated": "2025-01-01T00:00:00",
+            "subscription_count": 1,
+        }
+
+        result = update_timeline(timeline, changes, metadata)
+
+        # First entry should always be added
+        assert len(result["entries"]) == 1
+
+    def test_update_timeline_max_entries(self, monkeypatch):
+        """Test that timeline maintains max entry limit"""
+        # Set a small max for testing
+        monkeypatch.setattr("sync.MAX_TIMELINE_ENTRIES", 3)
+
+        timeline = {"entries": []}
+        metadata_base = {
+            "last_updated": "2025-01-01T00:00:00",
+            "subscription_count": 1,
+        }
+
+        # Add 5 entries
+        for i in range(5):
+            changes = {
+                "added": [{"name": f"Channel {i}", "id": f"UC{i}"}],
+                "removed": [],
+                "unchanged": [],
+            }
+            metadata_base["last_updated"] = f"2025-01-0{i+1}T00:00:00"
+            timeline = update_timeline(timeline, changes, metadata_base)
+
+        # Should only keep last 3 entries
+        assert len(timeline["entries"]) == 3
+        # Verify it kept the most recent ones
+        assert "Channel 2" in str(timeline["entries"][0])
+        assert "Channel 4" in str(timeline["entries"][-1])

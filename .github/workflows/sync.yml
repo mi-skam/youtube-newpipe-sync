@@ -15,13 +15,14 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Restore previous metadata
+      - name: Restore previous metadata and timeline
         run: |
           mkdir -p output
-          # Fetch metadata.json from gh-pages branch if it exists
+          # Fetch metadata.json and timeline.json from gh-pages branch if it exists
           if git ls-remote --exit-code --heads origin gh-pages; then
-            echo "Fetching previous metadata from gh-pages branch..."
+            echo "Fetching previous data from gh-pages branch..."
             if git fetch origin gh-pages:gh-pages 2>&1; then
+              # Restore metadata.json
               if git show gh-pages:metadata.json > output/metadata.json 2>/dev/null; then
                 echo "✅ Previous metadata restored"
                 # Use jq if available, otherwise use grep/sed as fallback
@@ -33,6 +34,15 @@ jobs:
                 fi
               else
                 echo "⚠️  No previous metadata found in gh-pages (first run)"
+              fi
+              # Restore timeline.json
+              if git show gh-pages:timeline.json > output/timeline.json 2>/dev/null; then
+                echo "✅ Timeline history restored"
+                if command -v jq >/dev/null 2>&1; then
+                  echo "Timeline entries: $(jq -r '.entries | length' output/timeline.json)"
+                fi
+              else
+                echo "⚠️  No previous timeline found (first run or new feature)"
               fi
             else
               echo "⚠️  Failed to fetch gh-pages branch"

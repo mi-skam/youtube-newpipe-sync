@@ -13,6 +13,8 @@ CLIENT_SECRET = os.environ.get("YOUTUBE_CLIENT_SECRET")
 REFRESH_TOKEN = os.environ.get("YOUTUBE_REFRESH_TOKEN")
 OUTPUT_DIR = Path("output")
 METADATA_FILE = OUTPUT_DIR / "metadata.json"
+TIMELINE_FILE = OUTPUT_DIR / "timeline.json"
+MAX_TIMELINE_ENTRIES = 50  # Keep last 50 sync entries
 
 
 def get_youtube_client():
@@ -68,6 +70,37 @@ def load_previous_metadata():
     return None
 
 
+def load_timeline():
+    """Load timeline history if it exists"""
+    if TIMELINE_FILE.exists():
+        with open(TIMELINE_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    return {"entries": []}
+
+
+def update_timeline(timeline, changes, metadata):
+    """Add a new entry to the timeline and maintain size limit"""
+    entry = {
+        "timestamp": metadata["last_updated"],
+        "subscription_count": metadata["subscription_count"],
+        "changes": {
+            "added_count": len(changes["added"]),
+            "removed_count": len(changes["removed"]),
+            "unchanged_count": len(changes["unchanged"]),
+            "added_channels": changes["added"],
+            "removed_channels": changes["removed"],
+        },
+    }
+
+    # Only add entry if there are changes or it's the first sync
+    if changes["added"] or changes["removed"] or not timeline["entries"]:
+        timeline["entries"].append(entry)
+        # Keep only the most recent entries
+        timeline["entries"] = timeline["entries"][-MAX_TIMELINE_ENTRIES:]
+
+    return timeline
+
+
 def compare_subscriptions(current_channels, previous_metadata):
     """Compare current subscriptions with previous sync"""
     if not previous_metadata:
@@ -90,7 +123,7 @@ def compare_subscriptions(current_channels, previous_metadata):
     }
 
 
-def generate_cleanup_html(changes, metadata):
+def generate_cleanup_html(changes, metadata, timeline):
     """Generate HTML cleanup guide"""
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -178,6 +211,53 @@ def generate_cleanup_html(changes, metadata):
         .timestamp {{
             color: #666;
             font-size: 0.9em;
+        }}
+        .timeline {{
+            margin-top: 20px;
+        }}
+        .timeline-entry {{
+            border-left: 3px solid #1976d2;
+            padding: 15px;
+            margin: 15px 0;
+            background: #fafafa;
+            border-radius: 0 4px 4px 0;
+        }}
+        .timeline-entry.no-changes {{
+            border-left-color: #999;
+            opacity: 0.7;
+        }}
+        .timeline-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }}
+        .timeline-date {{
+            font-weight: bold;
+            color: #333;
+        }}
+        .timeline-stats {{
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+        }}
+        .timeline-detail {{
+            margin-top: 10px;
+            font-size: 0.9em;
+        }}
+        .timeline-channels {{
+            margin-top: 8px;
+            padding-left: 20px;
+        }}
+        .show-more {{
+            cursor: pointer;
+            color: #1976d2;
+            text-decoration: underline;
+            margin-top: 5px;
+            display: inline-block;
+        }}
+        .hidden {{
+            display: none;
         }}
     </style>
 </head>
@@ -274,7 +354,99 @@ def generate_cleanup_html(changes, metadata):
         </div>"""
         html += "\n    </div>"
 
+    # Add timeline section
     html += """
+    <div class="card">
+        <h2>📅 Change Timeline</h2>
+        <p>History of subscription changes over time:</p>
+        <div class="timeline">
+"""
+
+    # Display timeline entries in reverse chronological order (most recent first)
+    if timeline.get("entries"):
+        # Show only last 10 entries by default
+        displayed_entries = timeline["entries"][-10:]
+        for entry in reversed(displayed_entries):
+            timestamp = datetime.fromisoformat(entry["timestamp"]).strftime(
+                "%Y-%m-%d %H:%M UTC"
+            )
+            changes_info = entry["changes"]
+            has_changes = changes_info["added_count"] > 0 or changes_info["removed_count"] > 0
+
+            entry_class = "timeline-entry" if has_changes else "timeline-entry no-changes"
+
+            html += f"""
+            <div class="{entry_class}">
+                <div class="timeline-header">
+                    <span class="timeline-date">{timestamp}</span>
+                    <div class="timeline-stats">
+                        <span>📊 {entry["subscription_count"]} total</span>
+"""
+            if has_changes:
+                html += f"""                        <span class="added">+{changes_info["added_count"]}</span>
+                        <span class="removed">-{changes_info["removed_count"]}</span>
+"""
+            else:
+                html += """                        <span style="color: #999;">No changes</span>
+"""
+
+            html += """                    </div>
+                </div>
+"""
+
+            # Show added channels if any
+            if changes_info["added_count"] > 0:
+                html += f"""
+                <div class="timeline-detail">
+                    <strong class="added">Added {changes_info["added_count"]} channel(s):</strong>
+                    <div class="timeline-channels">
+"""
+                for channel in changes_info["added_channels"][:5]:  # Show first 5
+                    html += f"""                        • {channel["name"]}<br>
+"""
+                if changes_info["added_count"] > 5:
+                    html += f"""                        <em>... and {changes_info["added_count"] - 5} more</em><br>
+"""
+                html += """                    </div>
+                </div>
+"""
+
+            # Show removed channels if any
+            if changes_info["removed_count"] > 0:
+                html += f"""
+                <div class="timeline-detail">
+                    <strong class="removed">Removed {changes_info["removed_count"]} channel(s):</strong>
+                    <div class="timeline-channels">
+"""
+                for channel in changes_info["removed_channels"][:5]:  # Show first 5
+                    html += f"""                        • {channel["name"]}<br>
+"""
+                if changes_info["removed_count"] > 5:
+                    html += f"""                        <em>... and {changes_info["removed_count"] - 5} more</em><br>
+"""
+                html += """                    </div>
+                </div>
+"""
+
+            html += """            </div>
+"""
+
+        # Show message if there are more entries
+        if len(timeline["entries"]) > 10:
+            html += f"""
+            <p class="empty" style="margin-top: 20px;">
+                Showing last 10 of {len(timeline["entries"])} sync events.
+                Full history is preserved in timeline.json.
+            </p>
+"""
+    else:
+        html += """
+            <p class="empty">No previous syncs recorded yet. This will build up over time!</p>
+"""
+
+    html += """        </div>
+    </div>
+
 </body>
 </html>"""
     return html
@@ -287,6 +459,10 @@ def main():
     # Load previous metadata for comparison
     print("Loading previous sync data...")
     previous_metadata = load_previous_metadata()
+
+    # Load timeline history
+    print("Loading timeline history...")
+    timeline = load_timeline()
 
     # Fetch current YouTube subscriptions
     youtube = get_youtube_client()
@@ -348,6 +524,12 @@ def main():
     with open(OUTPUT_DIR / "metadata.json", "w", encoding="utf-8") as f:
         json.dump(metadata, f, indent=2, ensure_ascii=False)
 
+    # Update and save timeline
+    print("Updating timeline...")
+    timeline = update_timeline(timeline, changes, metadata)
+    with open(TIMELINE_FILE, "w", encoding="utf-8") as f:
+        json.dump(timeline, f, indent=2, ensure_ascii=False)
+
     # Save changes.json
     print("Generating changes file...")
     with open(OUTPUT_DIR / "changes.json", "w", encoding="utf-8") as f:
@@ -366,7 +548,7 @@ def main():
 
     # Generate cleanup HTML guide as index.html
     print("Generating cleanup guide...")
-    cleanup_html = generate_cleanup_html(changes, metadata)
+    cleanup_html = generate_cleanup_html(changes, metadata, timeline)
     with open(OUTPUT_DIR / "index.html", "w", encoding="utf-8") as f:
         f.write(cleanup_html)
 
