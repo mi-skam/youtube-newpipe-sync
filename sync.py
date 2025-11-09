@@ -3,6 +3,7 @@ import csv
 import json
 import os
 from datetime import datetime
+from html import escape
 from pathlib import Path
 
 from google.oauth2.credentials import Credentials
@@ -329,8 +330,8 @@ def generate_cleanup_html(changes, metadata, timeline):
         for channel in sorted(changes["removed"], key=lambda x: x["name"]):
             html += f"""
         <div class="channel">
-            <span class="channel-name">{channel["name"]}</span>
-            <a href="https://www.youtube.com/channel/{channel["id"]}" class="channel-link" target="_blank">View</a>
+            <span class="channel-name">{escape(channel["name"])}</span>
+            <a href="https://www.youtube.com/channel/{escape(channel["id"])}" class="channel-link" target="_blank">View</a>
         </div>"""
         html += "\n    </div>"
     else:
@@ -349,8 +350,8 @@ def generate_cleanup_html(changes, metadata, timeline):
         for channel in sorted(changes["added"], key=lambda x: x["name"]):
             html += f"""
         <div class="channel">
-            <span class="channel-name">{channel["name"]}</span>
-            <a href="https://www.youtube.com/channel/{channel["id"]}" class="channel-link" target="_blank">View</a>
+            <span class="channel-name">{escape(channel["name"])}</span>
+            <a href="https://www.youtube.com/channel/{escape(channel["id"])}" class="channel-link" target="_blank">View</a>
         </div>"""
         html += "\n    </div>"
 
@@ -402,7 +403,7 @@ def generate_cleanup_html(changes, metadata, timeline):
                     <div class="timeline-channels">
 """
                 for channel in changes_info["added_channels"][:5]:  # Show first 5
-                    html += f"""                        • {channel["name"]}<br>
+                    html += f"""                        • {escape(channel["name"])}<br>
 """
                 if changes_info["added_count"] > 5:
                     html += f"""                        <em>... and {changes_info["added_count"] - 5} more</em><br>
@@ -419,7 +420,7 @@ def generate_cleanup_html(changes, metadata, timeline):
                     <div class="timeline-channels">
 """
                 for channel in changes_info["removed_channels"][:5]:  # Show first 5
-                    html += f"""                        • {channel["name"]}<br>
+                    html += f"""                        • {escape(channel["name"])}<br>
 """
                 if changes_info["removed_count"] > 5:
                     html += f"""                        <em>... and {changes_info["removed_count"] - 5} more</em><br>
