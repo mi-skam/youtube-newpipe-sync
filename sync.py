@@ -361,7 +361,7 @@ def generate_cleanup_html(changes, metadata, timeline):
         # Show only last 10 entries by default
         displayed_entries = timeline["entries"][-10:]
         for entry in reversed(displayed_entries):
-            timestamp = datetime.fromisoformat(entry["timestamp"]).strftime(
+            timestamp = datetime.fromisoformat(entry["timestamp"].replace("Z", "+00:00")).strftime(
                 "%Y-%m-%d %H:%M UTC"
             )
             changes_info = entry["changes"]
