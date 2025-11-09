@@ -250,13 +250,6 @@ def generate_cleanup_html(changes, metadata, timeline):
             margin-top: 8px;
             padding-left: 20px;
         }}
-        .show-more {{
-            cursor: pointer;
-            color: #1976d2;
-            text-decoration: underline;
-            margin-top: 5px;
-            display: inline-block;
-        }}
         .hidden {{
             display: none;
         }}
