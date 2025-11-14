@@ -73,7 +73,7 @@ def load_previous_metadata():
 
 def load_timeline():
     """Load timeline history if it exists"""
-    if TIMELINE_FILE.exists():
+    if TIMELINE_FILE.exists() and TIMELINE_FILE.stat().st_size > 0:
         with open(TIMELINE_FILE, encoding="utf-8") as f:
             return json.load(f)
     return {"entries": []}

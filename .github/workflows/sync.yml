@@ -43,6 +43,7 @@ jobs:
                 fi
               else
                 echo "⚠️  No previous timeline found (first run or new feature)"
+                rm -f output/timeline.json  # Remove empty file created by failed redirect
               fi
             else
               echo "⚠️  Failed to fetch gh-pages branch"
