@@ -1,0 +1,29 @@
+{
+  "entries": [
+    {
+      "timestamp": "2025-11-14T01:16:29.528230",
+      "subscription_count": 79,
+      "changes": {
+        "added_count": 1,
+        "removed_count": 2,
+        "unchanged_count": 78,
+        "added_channels": [
+          {
+            "name": "OpenInfra Foundation",
+            "id": "UCQ74G2gKXdpwZkXEsclzcrA"
+          }
+        ],
+        "removed_channels": [
+          {
+            "name": "Breaking Lab",
+            "id": "UCE2hJ9CYR57BYhk3TjGVG6w"
+          },
+          {
+            "name": "Geld für die Welt — Maurice Höfgen",
+            "id": "UCqLv2nTsMB_FXtQRFNXjWhA"
+          }
+        ]
+      }
+    }
+  ]
+}

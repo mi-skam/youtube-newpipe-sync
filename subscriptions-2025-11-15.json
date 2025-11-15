@@ -1,0 +1,401 @@
+{
+  "app_version": "0.26.1",
+  "app_version_int": 996,
+  "subscriptions": [
+    {
+      "id": "UC1t9VFj-O6YUDPQxaVg-NkQ",
+      "name": "c't 3003",
+      "url": "https://www.youtube.com/channel/UC1t9VFj-O6YUDPQxaVg-NkQ"
+    },
+    {
+      "id": "UC_76XFUys5fTO7u_HqrD7aA",
+      "name": "Raspberry Pi Cloud",
+      "url": "https://www.youtube.com/channel/UC_76XFUys5fTO7u_HqrD7aA"
+    },
+    {
+      "id": "UCR-DXc1voovS8nhAvccRZhg",
+      "name": "Jeff Geerling",
+      "url": "https://www.youtube.com/channel/UCR-DXc1voovS8nhAvccRZhg"
+    },
+    {
+      "id": "UCPS2CLdJZaG_rFUXfwn2jpA",
+      "name": "Mikkel Malmberg",
+      "url": "https://www.youtube.com/channel/UCPS2CLdJZaG_rFUXfwn2jpA"
+    },
+    {
+      "id": "UCUUTdohVElFLSP4NBnlPEwA",
+      "name": "Jim's Garage",
+      "url": "https://www.youtube.com/channel/UCUUTdohVElFLSP4NBnlPEwA"
+    },
+    {
+      "id": "UCsBjURrPoezykLs9EqgamOA",
+      "name": "Fireship",
+      "url": "https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA"
+    },
+    {
+      "id": "UC-mexo-76-J1MlQM8NkWCYw",
+      "name": "Armin Ronacher",
+      "url": "https://www.youtube.com/channel/UC-mexo-76-J1MlQM8NkWCYw"
+    },
+    {
+      "id": "UCZNhwA1B5YqiY1nLzmM0ZRg",
+      "name": "Christian Lempa",
+      "url": "https://www.youtube.com/channel/UCZNhwA1B5YqiY1nLzmM0ZRg"
+    },
+    {
+      "id": "UC0eZKTW3ikbwtfiw2BapzyA",
+      "name": "Latiniculus",
+      "url": "https://www.youtube.com/channel/UC0eZKTW3ikbwtfiw2BapzyA"
+    },
+    {
+      "id": "UC_zBdZ0_H_jn41FDRG7q4Tw",
+      "name": "Vimjoyer",
+      "url": "https://www.youtube.com/channel/UC_zBdZ0_H_jn41FDRG7q4Tw"
+    },
+    {
+      "id": "UC2TXq_t06Hjdr2g_KdKpHQg",
+      "name": "media.ccc.de",
+      "url": "https://www.youtube.com/channel/UC2TXq_t06Hjdr2g_KdKpHQg"
+    },
+    {
+      "id": "UCPbwhExawYrn9xxI21TFfyw",
+      "name": "The Pragmatic Engineer",
+      "url": "https://www.youtube.com/channel/UCPbwhExawYrn9xxI21TFfyw"
+    },
+    {
+      "id": "UCx8JeRbwiB4BwhPYsv24Hsw",
+      "name": "toast",
+      "url": "https://www.youtube.com/channel/UCx8JeRbwiB4BwhPYsv24Hsw"
+    },
+    {
+      "id": "UC_bMh2cqdwioGicb_zbdevw",
+      "name": "Nico Semsrott",
+      "url": "https://www.youtube.com/channel/UC_bMh2cqdwioGicb_zbdevw"
+    },
+    {
+      "id": "UCQ74G2gKXdpwZkXEsclzcrA",
+      "name": "OpenInfra Foundation",
+      "url": "https://www.youtube.com/channel/UCQ74G2gKXdpwZkXEsclzcrA"
+    },
+    {
+      "id": "UC-0fWjosItIOD4ThhS6oyfA",
+      "name": "Developer Voices",
+      "url": "https://www.youtube.com/channel/UC-0fWjosItIOD4ThhS6oyfA"
+    },
+    {
+      "id": "UCGzvjCcqc9U6KkmgNx9t6VA",
+      "name": "apfelcast by IT-ION GmbH",
+      "url": "https://www.youtube.com/channel/UCGzvjCcqc9U6KkmgNx9t6VA"
+    },
+    {
+      "id": "UCSxPE9PHHxQUEt6ajGmQyMA",
+      "name": "Brian Casel",
+      "url": "https://www.youtube.com/channel/UCSxPE9PHHxQUEt6ajGmQyMA"
+    },
+    {
+      "id": "UCx4zfnkl-CfsKiQ77m3ob3w",
+      "name": "Stadt Zeitz",
+      "url": "https://www.youtube.com/channel/UCx4zfnkl-CfsKiQ77m3ob3w"
+    },
+    {
+      "id": "UCUMwY9iS8oMyWDYIe6_RmoA",
+      "name": "No Boilerplate",
+      "url": "https://www.youtube.com/channel/UCUMwY9iS8oMyWDYIe6_RmoA"
+    },
+    {
+      "id": "UC8butISFwT-Wl7EV0hUK0BQ",
+      "name": "freeCodeCamp.org",
+      "url": "https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ"
+    },
+    {
+      "id": "UCT9EHa1CrvghG0kGz3uA3HQ",
+      "name": "InsideWire",
+      "url": "https://www.youtube.com/channel/UCT9EHa1CrvghG0kGz3uA3HQ"
+    },
+    {
+      "id": "UCOk-gHyjcWZNj3Br4oxwh0A",
+      "name": "Techno Tim",
+      "url": "https://www.youtube.com/channel/UCOk-gHyjcWZNj3Br4oxwh0A"
+    },
+    {
+      "id": "UCzQbgF0MRTMNY8ooXy-gbnQ",
+      "name": "J. Stephen Lee",
+      "url": "https://www.youtube.com/channel/UCzQbgF0MRTMNY8ooXy-gbnQ"
+    },
+    {
+      "id": "UCg8HtS2dhTjnHBiDzlyE55w",
+      "name": "Ty Teaches Tech",
+      "url": "https://www.youtube.com/channel/UCg8HtS2dhTjnHBiDzlyE55w"
+    },
+    {
+      "id": "UCsWaVYzOFvEWDsEuvuZJ-8A",
+      "name": "EmergentMind",
+      "url": "https://www.youtube.com/channel/UCsWaVYzOFvEWDsEuvuZJ-8A"
+    },
+    {
+      "id": "UCbF-4yQQAWw-UnuCd2Azfzg",
+      "name": "Christopher Okhravi",
+      "url": "https://www.youtube.com/channel/UCbF-4yQQAWw-UnuCd2Azfzg"
+    },
+    {
+      "id": "UCxPu6HTtD9crtYerqBhdSLQ",
+      "name": "Sergei Chyrkov",
+      "url": "https://www.youtube.com/channel/UCxPu6HTtD9crtYerqBhdSLQ"
+    },
+    {
+      "id": "UC1xJZN3p9vLSyewb7qQegYQ",
+      "name": "yoga with katharine",
+      "url": "https://www.youtube.com/channel/UC1xJZN3p9vLSyewb7qQegYQ"
+    },
+    {
+      "id": "UCxwkTHRFGIPeE8X6YIX5-aA",
+      "name": "Jon Moeller",
+      "url": "https://www.youtube.com/channel/UCxwkTHRFGIPeE8X6YIX5-aA"
+    },
+    {
+      "id": "UCkCcW6kSOXjh7T0Q5rNqfUg",
+      "name": "Linebug Official",
+      "url": "https://www.youtube.com/channel/UCkCcW6kSOXjh7T0Q5rNqfUg"
+    },
+    {
+      "id": "UCfa7jJFYnn3P5LdJXsFkrjw",
+      "name": "STRG_F",
+      "url": "https://www.youtube.com/channel/UCfa7jJFYnn3P5LdJXsFkrjw"
+    },
+    {
+      "id": "UCGmrba8gMPnl33Kfoo1IZ1A",
+      "name": "Extropic",
+      "url": "https://www.youtube.com/channel/UCGmrba8gMPnl33Kfoo1IZ1A"
+    },
+    {
+      "id": "UCe-MO0gWlxT47fHjNKVBRlg",
+      "name": "Oscar Moves",
+      "url": "https://www.youtube.com/channel/UCe-MO0gWlxT47fHjNKVBRlg"
+    },
+    {
+      "id": "UC64fwl47Wrc6VJcskll7vsA",
+      "name": "itch.io",
+      "url": "https://www.youtube.com/channel/UC64fwl47Wrc6VJcskll7vsA"
+    },
+    {
+      "id": "UCR8AYtETKgrq95L1usEdvMw",
+      "name": "Micah",
+      "url": "https://www.youtube.com/channel/UCR8AYtETKgrq95L1usEdvMw"
+    },
+    {
+      "id": "UCGmR6lhKMlCkvrvb39vPtdA",
+      "name": "Steve (Builder.io)",
+      "url": "https://www.youtube.com/channel/UCGmR6lhKMlCkvrvb39vPtdA"
+    },
+    {
+      "id": "UC7HJmik_-oVb36eZ3ErshkQ",
+      "name": "ALASCA e.V.",
+      "url": "https://www.youtube.com/channel/UC7HJmik_-oVb36eZ3ErshkQ"
+    },
+    {
+      "id": "UCqC2G2M-rg4fzg1esKFLFIw",
+      "name": "Deno",
+      "url": "https://www.youtube.com/channel/UCqC2G2M-rg4fzg1esKFLFIw"
+    },
+    {
+      "id": "UCQVaudlZNpkOBpt82HFfsQA",
+      "name": "WayWeMove by Zarina del Mar",
+      "url": "https://www.youtube.com/channel/UCQVaudlZNpkOBpt82HFfsQA"
+    },
+    {
+      "id": "UC899MXB8_df7O5HzedKBzaA",
+      "name": "Julien Cohen",
+      "url": "https://www.youtube.com/channel/UC899MXB8_df7O5HzedKBzaA"
+    },
+    {
+      "id": "UCrDwWp7EBBv4NwvScIpBDOA",
+      "name": "Anthropic",
+      "url": "https://www.youtube.com/channel/UCrDwWp7EBBv4NwvScIpBDOA"
+    },
+    {
+      "id": "UCij1VEjDb88RCbqsvZ1gqaw",
+      "name": "Side Of Burritos",
+      "url": "https://www.youtube.com/channel/UCij1VEjDb88RCbqsvZ1gqaw"
+    },
+    {
+      "id": "UCLIo-9WnXvQcXfXomQvYSOg",
+      "name": "Eduards Ruzga",
+      "url": "https://www.youtube.com/channel/UCLIo-9WnXvQcXfXomQvYSOg"
+    },
+    {
+      "id": "UC-qfMIqavKGTyp9E4m3UuVw",
+      "name": "Doopiidoo",
+      "url": "https://www.youtube.com/channel/UC-qfMIqavKGTyp9E4m3UuVw"
+    },
+    {
+      "id": "UCvkM2esSMJTZVtPo8NVtP4g",
+      "name": "Hynek Schlawack",
+      "url": "https://www.youtube.com/channel/UCvkM2esSMJTZVtPo8NVtP4g"
+    },
+    {
+      "id": "UCLXo7UDZvByw2ixzpQCufnA",
+      "name": "Vox",
+      "url": "https://www.youtube.com/channel/UCLXo7UDZvByw2ixzpQCufnA"
+    },
+    {
+      "id": "UCJ3l6hUsHy3B0URWZMwBf4Q",
+      "name": "Hochleistungsnerd",
+      "url": "https://www.youtube.com/channel/UCJ3l6hUsHy3B0URWZMwBf4Q"
+    },
+    {
+      "id": "UCKGMHVipEvuZudhHD05FOYA",
+      "name": "Simplicissimus",
+      "url": "https://www.youtube.com/channel/UCKGMHVipEvuZudhHD05FOYA"
+    },
+    {
+      "id": "UCpXfS8bu7ILGCuOtsnJMtxQ",
+      "name": "Vivek Haldar",
+      "url": "https://www.youtube.com/channel/UCpXfS8bu7ILGCuOtsnJMtxQ"
+    },
+    {
+      "id": "UCqcxAtlPizczJVt8NuQtilA",
+      "name": "Erik Ahrens",
+      "url": "https://www.youtube.com/channel/UCqcxAtlPizczJVt8NuQtilA"
+    },
+    {
+      "id": "UCHnyfMqiRRG1u-2MsSQLbXA",
+      "name": "Veritasium",
+      "url": "https://www.youtube.com/channel/UCHnyfMqiRRG1u-2MsSQLbXA"
+    },
+    {
+      "id": "UC0FbLFP7qrdld5XKwlwQaLw",
+      "name": "ParsaTube",
+      "url": "https://www.youtube.com/channel/UC0FbLFP7qrdld5XKwlwQaLw"
+    },
+    {
+      "id": "UCMUy_WsUIYbM_hKR9drb9dA",
+      "name": "Julia Turc",
+      "url": "https://www.youtube.com/channel/UCMUy_WsUIYbM_hKR9drb9dA"
+    },
+    {
+      "id": "UCSpaOySWShg5fv_2WNlYS2Q",
+      "name": "Moritz Simon Geist",
+      "url": "https://www.youtube.com/channel/UCSpaOySWShg5fv_2WNlYS2Q"
+    },
+    {
+      "id": "UCQjBsscIa_mgEnSvWpm_9vw",
+      "name": "Odysseas",
+      "url": "https://www.youtube.com/channel/UCQjBsscIa_mgEnSvWpm_9vw"
+    },
+    {
+      "id": "UCPBbCmGKB3LX7SCI70HieXQ",
+      "name": "LeanProductivity - Sascha D. Kasper",
+      "url": "https://www.youtube.com/channel/UCPBbCmGKB3LX7SCI70HieXQ"
+    },
+    {
+      "id": "UC3vIimi9q4AT8EgxYp_dWIw",
+      "name": "NixOS",
+      "url": "https://www.youtube.com/channel/UC3vIimi9q4AT8EgxYp_dWIw"
+    },
+    {
+      "id": "UCh1zLfuN6F_X4eoNKCsyICA",
+      "name": "Yosh",
+      "url": "https://www.youtube.com/channel/UCh1zLfuN6F_X4eoNKCsyICA"
+    },
+    {
+      "id": "UCj1VqrHhDte54oLgPG4xpuQ",
+      "name": "Stuff Made Here",
+      "url": "https://www.youtube.com/channel/UCj1VqrHhDte54oLgPG4xpuQ"
+    },
+    {
+      "id": "UCmOpHGj4JRWCdXhllVTZCVw",
+      "name": "The Code Creative",
+      "url": "https://www.youtube.com/channel/UCmOpHGj4JRWCdXhllVTZCVw"
+    },
+    {
+      "id": "UCoeUvZfZu-qn7dfrwD4NCtw",
+      "name": "Steven Gong",
+      "url": "https://www.youtube.com/channel/UCoeUvZfZu-qn7dfrwD4NCtw"
+    },
+    {
+      "id": "UCuGS5mN1_CpPzuOUAu2LluA",
+      "name": "nixhero",
+      "url": "https://www.youtube.com/channel/UCuGS5mN1_CpPzuOUAu2LluA"
+    },
+    {
+      "id": "UC9kC4zCxE-i-g4GnB3KhWpA",
+      "name": "Scott Detweiler",
+      "url": "https://www.youtube.com/channel/UC9kC4zCxE-i-g4GnB3KhWpA"
+    },
+    {
+      "id": "UCFzUEe9XUlkDLp6AmtNzmOA",
+      "name": "IogaMaster",
+      "url": "https://www.youtube.com/channel/UCFzUEe9XUlkDLp6AmtNzmOA"
+    },
+    {
+      "id": "UCGooU472l1UqbUCXR3q1SEQ",
+      "name": "arcanfrontend",
+      "url": "https://www.youtube.com/channel/UCGooU472l1UqbUCXR3q1SEQ"
+    },
+    {
+      "id": "UCKEk670ECmteGBehmDjVSSg",
+      "name": "Learn Data with Mark",
+      "url": "https://www.youtube.com/channel/UCKEk670ECmteGBehmDjVSSg"
+    },
+    {
+      "id": "UCR2uRTQ53V_egXKFflMMaaw",
+      "name": "Artem Kirsanov",
+      "url": "https://www.youtube.com/channel/UCR2uRTQ53V_egXKFflMMaaw"
+    },
+    {
+      "id": "UCUlSAoLd9N2AEeT08wqnpyg",
+      "name": "Nik Lever",
+      "url": "https://www.youtube.com/channel/UCUlSAoLd9N2AEeT08wqnpyg"
+    },
+    {
+      "id": "UCVGuvJBjMyli7v1ggX6Klqg",
+      "name": "Jake Hamilton",
+      "url": "https://www.youtube.com/channel/UCVGuvJBjMyli7v1ggX6Klqg"
+    },
+    {
+      "id": "UC0LfPSALkn8YDhXZf8-Pl5A",
+      "name": "Jascha Quarder",
+      "url": "https://www.youtube.com/channel/UC0LfPSALkn8YDhXZf8-Pl5A"
+    },
+    {
+      "id": "UCzdg4pZb-viC3EdA1zxRl4A",
+      "name": "Hundred Rabbits",
+      "url": "https://www.youtube.com/channel/UCzdg4pZb-viC3EdA1zxRl4A"
+    },
+    {
+      "id": "UCvjgXvBlbQiydffZU7m1_aw",
+      "name": "The Coding Train",
+      "url": "https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw"
+    },
+    {
+      "id": "UCogSE6uiJyiL31IG-tlxBAw",
+      "name": "Jörn Loviscach",
+      "url": "https://www.youtube.com/channel/UCogSE6uiJyiL31IG-tlxBAw"
+    },
+    {
+      "id": "UCzgkOWKcwy0uhYilE6bd1Lg",
+      "name": "Zaiste Programming",
+      "url": "https://www.youtube.com/channel/UCzgkOWKcwy0uhYilE6bd1Lg"
+    },
+    {
+      "id": "UC0BtS97KQR7I4Xqa9VYlkvg",
+      "name": "the native web GmbH",
+      "url": "https://www.youtube.com/channel/UC0BtS97KQR7I4Xqa9VYlkvg"
+    },
+    {
+      "id": "UCjTfChr0yyz4iZq0x12Q6xA",
+      "name": "Weitz / HAW Hamburg",
+      "url": "https://www.youtube.com/channel/UCjTfChr0yyz4iZq0x12Q6xA"
+    },
+    {
+      "id": "UCdyI5KK8-BtQizLCDjmSk8A",
+      "name": "MarcUweKling",
+      "url": "https://www.youtube.com/channel/UCdyI5KK8-BtQizLCDjmSk8A"
+    },
+    {
+      "id": "UCuxhTSKtnMJizinblLs9xOA",
+      "name": "pixegami",
+      "url": "https://www.youtube.com/channel/UCuxhTSKtnMJizinblLs9xOA"
+    }
+  ]
+}

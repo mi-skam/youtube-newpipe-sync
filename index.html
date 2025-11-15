@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewPipe Cleanup Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+        h2 {
+            color: #666;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        .summary {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .stat {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .removed { color: #d32f2f; }
+        .added { color: #388e3c; }
+        .channel {
+            padding: 10px;
+            margin: 5px 0;
+            background: #fafafa;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .channel-name {
+            font-weight: 500;
+        }
+        .channel-link {
+            color: #1976d2;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .empty {
+            color: #999;
+            text-align: center;
+            padding: 20px;
+        }
+        .instructions {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .timeline {
+            margin-top: 20px;
+        }
+        .timeline-entry {
+            border-left: 3px solid #1976d2;
+            padding: 15px;
+            margin: 15px 0;
+            background: #fafafa;
+            border-radius: 0 4px 4px 0;
+        }
+        .timeline-entry.no-changes {
+            border-left-color: #999;
+            opacity: 0.7;
+        }
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .timeline-date {
+            font-weight: bold;
+            color: #333;
+        }
+        .timeline-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+        }
+        .timeline-detail {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .timeline-channels {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📱 NewPipe Cleanup Guide</h1>
+        <p class="timestamp">Last updated: 2025-11-15T02:35:29.930743</p>
+
+        <div class="summary">
+            <div class="stat">
+                <div class="stat-number">79</div>
+                <div class="stat-label">Total Subscriptions</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number added">0</div>
+                <div class="stat-label">Added</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number removed">0</div>
+                <div class="stat-label">Removed</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📥 Step 1: Import New Subscriptions</h2>
+        <div class="instructions">
+            <strong>Import this file to add new YouTube subscriptions to NewPipe:</strong>
+        </div>
+        <div style="background: #f5f5f5; padding: 15px; border-radius: 4px; margin: 15px 0; word-break: break-all;">
+            <strong>NewPipe Format:</strong><br>
+            <a href="subscriptions.json" style="color: #1976d2;">subscriptions.json</a><br><br>
+            <strong>YouTube CSV Format (Google Takeout compatible):</strong><br>
+            <a href="subscriptions.csv" style="color: #1976d2;">subscriptions.csv</a>
+        </div>
+        <div style="padding-left: 20px;">
+            <strong>How to import (NewPipe):</strong>
+            <ol>
+                <li>Open NewPipe on your phone</li>
+                <li>Tap the ☰ menu (top-left)</li>
+                <li>Go to <strong>Settings</strong> → <strong>Content</strong></li>
+                <li>Tap <strong>Import from file</strong></li>
+                <li>Paste the URL above or download and select the file</li>
+                <li>Tap <strong>Import</strong></li>
+            </ol>
+            <p style="color: #666; font-size: 0.9em;">
+                💡 <em>Tip: Bookmark the subscriptions.json URL for easy access!</em><br>
+                📊 <em>The CSV format can be imported into YouTube or other compatible apps.</em>
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>✅ No Cleanup Needed</h2>
+        <p class="empty">All your NewPipe subscriptions match YouTube!</p>
+    </div>
+    <div class="card">
+        <h2>📅 Change Timeline</h2>
+        <p>History of subscription changes over time:</p>
+        <div class="timeline">
+
+            <div class="timeline-entry">
+                <div class="timeline-header">
+                    <span class="timeline-date">2025-11-14 01:16 UTC</span>
+                    <div class="timeline-stats">
+                        <span>📊 79 total</span>
+                        <span class="added">+1</span>
+                        <span class="removed">-2</span>
+                    </div>
+                </div>
+
+                <div class="timeline-detail">
+                    <strong class="added">Added 1 channel(s):</strong>
+                    <div class="timeline-channels">
+                        • OpenInfra Foundation<br>
+                    </div>
+                </div>
+
+                <div class="timeline-detail">
+                    <strong class="removed">Removed 2 channel(s):</strong>
+                    <div class="timeline-channels">
+                        • Breaking Lab<br>
+                        • Geld für die Welt — Maurice Höfgen<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

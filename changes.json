@@ -1,0 +1,326 @@
+{
+  "sync_date": "2025-11-15T02:35:29.931346",
+  "previous_sync": "2025-11-14T02:37:54.894667",
+  "changes": {
+    "added": [],
+    "removed": [],
+    "unchanged": [
+      {
+        "name": "The Pragmatic Engineer",
+        "id": "UCPbwhExawYrn9xxI21TFfyw"
+      },
+      {
+        "name": "media.ccc.de",
+        "id": "UC2TXq_t06Hjdr2g_KdKpHQg"
+      },
+      {
+        "name": "Weitz / HAW Hamburg",
+        "id": "UCjTfChr0yyz4iZq0x12Q6xA"
+      },
+      {
+        "name": "Vox",
+        "id": "UCLXo7UDZvByw2ixzpQCufnA"
+      },
+      {
+        "name": "WayWeMove by Zarina del Mar",
+        "id": "UCQVaudlZNpkOBpt82HFfsQA"
+      },
+      {
+        "name": "J. Stephen Lee",
+        "id": "UCzQbgF0MRTMNY8ooXy-gbnQ"
+      },
+      {
+        "name": "Deno",
+        "id": "UCqC2G2M-rg4fzg1esKFLFIw"
+      },
+      {
+        "name": "ALASCA e.V.",
+        "id": "UC7HJmik_-oVb36eZ3ErshkQ"
+      },
+      {
+        "name": "Hundred Rabbits",
+        "id": "UCzdg4pZb-viC3EdA1zxRl4A"
+      },
+      {
+        "name": "Christian Lempa",
+        "id": "UCZNhwA1B5YqiY1nLzmM0ZRg"
+      },
+      {
+        "name": "itch.io",
+        "id": "UC64fwl47Wrc6VJcskll7vsA"
+      },
+      {
+        "name": "Doopiidoo",
+        "id": "UC-qfMIqavKGTyp9E4m3UuVw"
+      },
+      {
+        "name": "Latiniculus",
+        "id": "UC0eZKTW3ikbwtfiw2BapzyA"
+      },
+      {
+        "name": "Oscar Moves",
+        "id": "UCe-MO0gWlxT47fHjNKVBRlg"
+      },
+      {
+        "name": "Extropic",
+        "id": "UCGmrba8gMPnl33Kfoo1IZ1A"
+      },
+      {
+        "name": "Steve (Builder.io)",
+        "id": "UCGmR6lhKMlCkvrvb39vPtdA"
+      },
+      {
+        "name": "toast",
+        "id": "UCx8JeRbwiB4BwhPYsv24Hsw"
+      },
+      {
+        "name": "Micah",
+        "id": "UCR8AYtETKgrq95L1usEdvMw"
+      },
+      {
+        "name": "Simplicissimus",
+        "id": "UCKGMHVipEvuZudhHD05FOYA"
+      },
+      {
+        "name": "The Code Creative",
+        "id": "UCmOpHGj4JRWCdXhllVTZCVw"
+      },
+      {
+        "name": "Hynek Schlawack",
+        "id": "UCvkM2esSMJTZVtPo8NVtP4g"
+      },
+      {
+        "name": "Jörn Loviscach",
+        "id": "UCogSE6uiJyiL31IG-tlxBAw"
+      },
+      {
+        "name": "Artem Kirsanov",
+        "id": "UCR2uRTQ53V_egXKFflMMaaw"
+      },
+      {
+        "name": "freeCodeCamp.org",
+        "id": "UC8butISFwT-Wl7EV0hUK0BQ"
+      },
+      {
+        "name": "Stadt Zeitz",
+        "id": "UCx4zfnkl-CfsKiQ77m3ob3w"
+      },
+      {
+        "name": "Linebug Official",
+        "id": "UCkCcW6kSOXjh7T0Q5rNqfUg"
+      },
+      {
+        "name": "Vivek Haldar",
+        "id": "UCpXfS8bu7ILGCuOtsnJMtxQ"
+      },
+      {
+        "name": "c't 3003",
+        "id": "UC1t9VFj-O6YUDPQxaVg-NkQ"
+      },
+      {
+        "name": "Julien Cohen",
+        "id": "UC899MXB8_df7O5HzedKBzaA"
+      },
+      {
+        "name": "No Boilerplate",
+        "id": "UCUMwY9iS8oMyWDYIe6_RmoA"
+      },
+      {
+        "name": "Side Of Burritos",
+        "id": "UCij1VEjDb88RCbqsvZ1gqaw"
+      },
+      {
+        "name": "Julia Turc",
+        "id": "UCMUy_WsUIYbM_hKR9drb9dA"
+      },
+      {
+        "name": "Jake Hamilton",
+        "id": "UCVGuvJBjMyli7v1ggX6Klqg"
+      },
+      {
+        "name": "InsideWire",
+        "id": "UCT9EHa1CrvghG0kGz3uA3HQ"
+      },
+      {
+        "name": "Techno Tim",
+        "id": "UCOk-gHyjcWZNj3Br4oxwh0A"
+      },
+      {
+        "name": "Raspberry Pi Cloud",
+        "id": "UC_76XFUys5fTO7u_HqrD7aA"
+      },
+      {
+        "name": "arcanfrontend",
+        "id": "UCGooU472l1UqbUCXR3q1SEQ"
+      },
+      {
+        "name": "the native web GmbH",
+        "id": "UC0BtS97KQR7I4Xqa9VYlkvg"
+      },
+      {
+        "name": "EmergentMind",
+        "id": "UCsWaVYzOFvEWDsEuvuZJ-8A"
+      },
+      {
+        "name": "Stuff Made Here",
+        "id": "UCj1VqrHhDte54oLgPG4xpuQ"
+      },
+      {
+        "name": "Mikkel Malmberg",
+        "id": "UCPS2CLdJZaG_rFUXfwn2jpA"
+      },
+      {
+        "name": "Christopher Okhravi",
+        "id": "UCbF-4yQQAWw-UnuCd2Azfzg"
+      },
+      {
+        "name": "OpenInfra Foundation",
+        "id": "UCQ74G2gKXdpwZkXEsclzcrA"
+      },
+      {
+        "name": "Fireship",
+        "id": "UCsBjURrPoezykLs9EqgamOA"
+      },
+      {
+        "name": "pixegami",
+        "id": "UCuxhTSKtnMJizinblLs9xOA"
+      },
+      {
+        "name": "IogaMaster",
+        "id": "UCFzUEe9XUlkDLp6AmtNzmOA"
+      },
+      {
+        "name": "Developer Voices",
+        "id": "UC-0fWjosItIOD4ThhS6oyfA"
+      },
+      {
+        "name": "Nico Semsrott",
+        "id": "UC_bMh2cqdwioGicb_zbdevw"
+      },
+      {
+        "name": "Sergei Chyrkov",
+        "id": "UCxPu6HTtD9crtYerqBhdSLQ"
+      },
+      {
+        "name": "LeanProductivity - Sascha D. Kasper",
+        "id": "UCPBbCmGKB3LX7SCI70HieXQ"
+      },
+      {
+        "name": "ParsaTube",
+        "id": "UC0FbLFP7qrdld5XKwlwQaLw"
+      },
+      {
+        "name": "Brian Casel",
+        "id": "UCSxPE9PHHxQUEt6ajGmQyMA"
+      },
+      {
+        "name": "NixOS",
+        "id": "UC3vIimi9q4AT8EgxYp_dWIw"
+      },
+      {
+        "name": "Hochleistungsnerd",
+        "id": "UCJ3l6hUsHy3B0URWZMwBf4Q"
+      },
+      {
+        "name": "Odysseas",
+        "id": "UCQjBsscIa_mgEnSvWpm_9vw"
+      },
+      {
+        "name": "Steven Gong",
+        "id": "UCoeUvZfZu-qn7dfrwD4NCtw"
+      },
+      {
+        "name": "Ty Teaches Tech",
+        "id": "UCg8HtS2dhTjnHBiDzlyE55w"
+      },
+      {
+        "name": "Scott Detweiler",
+        "id": "UC9kC4zCxE-i-g4GnB3KhWpA"
+      },
+      {
+        "name": "Eduards Ruzga",
+        "id": "UCLIo-9WnXvQcXfXomQvYSOg"
+      },
+      {
+        "name": "apfelcast by IT-ION GmbH",
+        "id": "UCGzvjCcqc9U6KkmgNx9t6VA"
+      },
+      {
+        "name": "STRG_F",
+        "id": "UCfa7jJFYnn3P5LdJXsFkrjw"
+      },
+      {
+        "name": "Jon Moeller",
+        "id": "UCxwkTHRFGIPeE8X6YIX5-aA"
+      },
+      {
+        "name": "The Coding Train",
+        "id": "UCvjgXvBlbQiydffZU7m1_aw"
+      },
+      {
+        "name": "Zaiste Programming",
+        "id": "UCzgkOWKcwy0uhYilE6bd1Lg"
+      },
+      {
+        "name": "Anthropic",
+        "id": "UCrDwWp7EBBv4NwvScIpBDOA"
+      },
+      {
+        "name": "Moritz Simon Geist",
+        "id": "UCSpaOySWShg5fv_2WNlYS2Q"
+      },
+      {
+        "name": "Vimjoyer",
+        "id": "UC_zBdZ0_H_jn41FDRG7q4Tw"
+      },
+      {
+        "name": "yoga with katharine",
+        "id": "UC1xJZN3p9vLSyewb7qQegYQ"
+      },
+      {
+        "name": "Jeff Geerling",
+        "id": "UCR-DXc1voovS8nhAvccRZhg"
+      },
+      {
+        "name": "Erik Ahrens",
+        "id": "UCqcxAtlPizczJVt8NuQtilA"
+      },
+      {
+        "name": "Jascha Quarder",
+        "id": "UC0LfPSALkn8YDhXZf8-Pl5A"
+      },
+      {
+        "name": "nixhero",
+        "id": "UCuGS5mN1_CpPzuOUAu2LluA"
+      },
+      {
+        "name": "MarcUweKling",
+        "id": "UCdyI5KK8-BtQizLCDjmSk8A"
+      },
+      {
+        "name": "Nik Lever",
+        "id": "UCUlSAoLd9N2AEeT08wqnpyg"
+      },
+      {
+        "name": "Armin Ronacher",
+        "id": "UC-mexo-76-J1MlQM8NkWCYw"
+      },
+      {
+        "name": "Jim's Garage",
+        "id": "UCUUTdohVElFLSP4NBnlPEwA"
+      },
+      {
+        "name": "Learn Data with Mark",
+        "id": "UCKEk670ECmteGBehmDjVSSg"
+      },
+      {
+        "name": "Yosh",
+        "id": "UCh1zLfuN6F_X4eoNKCsyICA"
+      },
+      {
+        "name": "Veritasium",
+        "id": "UCHnyfMqiRRG1u-2MsSQLbXA"
+      }
+    ]
+  }
+}
